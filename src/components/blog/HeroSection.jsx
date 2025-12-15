@@ -1,0 +1,18 @@
+import { PenLine } from "lucide-react";
+
+export default function HeroSection() {
+  return (
+    <div className="flex flex-col items-center justify-center h-120 gap-3">
+      <h1 className="text-7xl font-bold">
+        Welcome to <span className="text-primary">InkWell</span>
+      </h1>
+      <p className="text-xl text-muted-foreground w-170 text-center">
+        A space for thoughts, stories, and ideas. Discover articles on design,
+        development, and creativity.
+      </p>
+      <button className="flex gap-2 items-center bg-primary px-8 py-3 rounded-lg text-white  hover:bg-blue-900 hover:cursor-pointer">
+        <PenLine className="size-4" /> Start Writing
+      </button>
+    </div>
+  );
+}
