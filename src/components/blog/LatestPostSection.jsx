@@ -1,38 +1,52 @@
 import { Search } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PostItem from "./PostItem";
+import axios from "axios";
 
-const dataPosts = [
-    {
-        id: 1,
-        genre: "Design",
-        title: "The Art",
-        description:
-          "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
-        tags: ["#minimalis", "#ui", "#aesthetic"],
+// const dataPosts = [
+//     {
+//         id: 1,
+//         genre: "Design",
+//         title: "The Art",
+//         description:
+//           "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
+//         tags: ["#minimalis", "#ui", "#aesthetic"],
 
-    },
-    {
-        id: 2,
-        genre: "Besign",
-        title: "The Ort",
-        description:
-          "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
-        tags: ["#minimalis", "#aesthetic"],
+//     },
+//     {
+//         id: 2,
+//         genre: "Besign",
+//         title: "The Ort",
+//         description:
+//           "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
+//         tags: ["#minimalis", "#aesthetic"],
 
-    },
-    {
-        id: 3,
-        genre: "Resign",
-        title: "The Winner",
-        description:
-          "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
-        tags: ["#minimalis"],
+//     },
+//     {
+//         id: 3,
+//         genre: "Resign",
+//         title: "The Winner",
+//         description:
+//           "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
+//         tags: ["#minimalis"],
 
-    }
-]
+//     }
+// ]
+
 
 export default function LatestPostSection() {
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await axios.get("http://localhost:3000/api/post/");
+      setPosts(response.data);
+      // console.log(response);
+    }
+    fetchPosts();
+  }, []);
+
   return (
     <div className="px-30 border-y border-gray-300 py-10">
       {/* Latest Post dan Search */}
@@ -48,8 +62,8 @@ export default function LatestPostSection() {
       </div>
       {/* List Post Items */}
       <div className="list-post grid grid-cols-2 gap-5">
-        {dataPosts.map((post) => (
-            <PostItem key={post.id} genre={post.genre} title={post.title} description={post.description} tags={post.tags} />
+        {posts.map((post) => (
+            <PostItem key={post.id} category={post.category} title={post.title} content={post.content} tags={post.tags} />
         ))}
       </div>
     </div>

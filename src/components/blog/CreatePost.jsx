@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function CreatePost() {
+
   return (
     <div className='py-16 w-[50%] mx-auto '>
       <div className='space-y-3 mb-10'>
@@ -33,7 +35,7 @@ export default function CreatePost() {
           <input placeholder='Write your content here...' className='text-muted-foreground border border-gray-300 rounded-md p-2 h-[200px]'/>
         </div>
         <div className='flex justify-between mt-8'>
-          <button className='px-5 py-2 rounded-lg hover:bg-blue-100 cursor-pointer'>Cancel</button>
+          <Link to="/" className='px-5 py-2 rounded-lg hover:bg-blue-100 cursor-pointer'>Cancel</Link>
           <button className='px-5 py-2 bg-primary rounded-lg text-white'>Create Post</button>
         </div>
       </form>

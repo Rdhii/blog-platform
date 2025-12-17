@@ -1,6 +1,9 @@
 import { PenLine } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
+
+
   return (
     <div className="flex flex-col items-center justify-center h-120 gap-3">
       <h1 className="text-7xl font-bold">
@@ -10,9 +13,9 @@ export default function HeroSection() {
         A space for thoughts, stories, and ideas. Discover articles on design,
         development, and creativity.
       </p>
-      <button className="flex gap-2 items-center bg-primary px-8 py-3 rounded-lg text-white  hover:bg-blue-900 hover:cursor-pointer">
+      <Link to="/create" className="flex gap-2 items-center bg-primary px-8 py-3 rounded-lg text-white  hover:bg-blue-900 hover:cursor-pointer">
         <PenLine className="size-4" /> Start Writing
-      </button>
+      </Link>
     </div>
   );
 }
