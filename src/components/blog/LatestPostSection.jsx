@@ -6,27 +6,27 @@ import axios from "axios";
 // const dataPosts = [
 //     {
 //         id: 1,
-//         genre: "Design",
+//         category: "Design",
 //         title: "The Art",
-//         description:
+//         content:
 //           "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
 //         tags: ["#minimalis", "#ui", "#aesthetic"],
 
 //     },
 //     {
 //         id: 2,
-//         genre: "Besign",
+//         category: "Besign",
 //         title: "The Ort",
-//         description:
+//         content:
 //           "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
 //         tags: ["#minimalis", "#aesthetic"],
 
 //     },
 //     {
 //         id: 3,
-//         genre: "Resign",
+//         category: "Resign",
 //         title: "The Winner",
-//         description:
+//         content:
 //           "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
 //         tags: ["#minimalis"],
 

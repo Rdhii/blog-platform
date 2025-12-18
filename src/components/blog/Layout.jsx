@@ -1,7 +1,7 @@
 import Footer from "./footer";
-import { Navbar } from "./Navbar";
+import { Navbar } from "../shared/Navbar";
 
-export function Layout({children}) {
+export function Layout({ children }) {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
