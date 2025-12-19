@@ -2,6 +2,7 @@ import { Search } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import PostItem from "./PostItem";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 // const dataPosts = [
 //     {
@@ -63,7 +64,9 @@ export default function LatestPostSection() {
       {/* List Post Items */}
       <div className="list-post grid grid-cols-2 gap-5">
         {posts.map((post) => (
-            <PostItem key={post.id} category={post.category} title={post.title} content={post.content} tags={post.tags} />
+          <Link to={`/${post.id}`} key={post.id}>
+            <PostItem  category={post.category} title={post.title} content={post.content} tags={post.tags} />
+          </Link>
         ))}
       </div>
     </div>

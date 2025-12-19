@@ -2,4 +2,5 @@
 [x] Routing Page
 [x] Setup Backend
 [x] Connect Backend
-[] Buat Page Detail Post
+[x] Buat Page Detail Post
+[] Connect Detail Post ke Backend
