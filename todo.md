@@ -1,3 +1,5 @@
 [x] Buat Page Create Post
-[] Routing Page
-[] 
+[x] Routing Page
+[x] Setup Backend
+[x] Connect Backend
+[] Buat Page Detail Post

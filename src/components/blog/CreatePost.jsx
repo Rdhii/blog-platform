@@ -71,7 +71,7 @@ export default function CreatePost() {
           name="category"
           value={formData.category}
           onChange={handleChange}
-          className='border border-gray-300 rounded-md p-2'
+          className='border border-gray-300 rounded-md p-2 cursor-pointer'
           required>
             <option value="" disabled hidden>Select a Category</option>
             <option value="development">Development</option>
@@ -108,7 +108,7 @@ export default function CreatePost() {
           <Link to="/" className='px-5 py-2 rounded-lg hover:bg-blue-100 cursor-pointer'>Cancel</Link>
           <button 
             type="submit"
-          className='px-5 py-2 bg-primary rounded-lg text-white'>Create Post</button>
+          className='px-5 py-2 bg-primary rounded-lg text-white cursor-pointer hover:bg-primary/90'>Create Post</button>
         </div>
       </form>
     </div>
