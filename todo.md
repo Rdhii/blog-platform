@@ -3,4 +3,5 @@
 [x] Setup Backend
 [x] Connect Backend
 [x] Buat Page Detail Post
-[] Connect Detail Post ke Backend
+[x] Connect Detail Post ke Backend
+[x] Set Tanggal Pembuatan Post menjadi Tanggal Bulan Tahun

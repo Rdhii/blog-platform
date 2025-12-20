@@ -4,36 +4,6 @@ import PostItem from "./PostItem";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-// const dataPosts = [
-//     {
-//         id: 1,
-//         category: "Design",
-//         title: "The Art",
-//         content:
-//           "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
-//         tags: ["#minimalis", "#ui", "#aesthetic"],
-
-//     },
-//     {
-//         id: 2,
-//         category: "Besign",
-//         title: "The Ort",
-//         content:
-//           "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
-//         tags: ["#minimalis", "#aesthetic"],
-
-//     },
-//     {
-//         id: 3,
-//         category: "Resign",
-//         title: "The Winner",
-//         content:
-//           "Minimalist design is more than just an aesthetic choice—it's a philosophy that emphasizes clarity and purpose.",
-//         tags: ["#minimalis"],
-
-//     }
-// ]
-
 
 export default function LatestPostSection() {
 
@@ -65,7 +35,7 @@ export default function LatestPostSection() {
       <div className="list-post grid grid-cols-2 gap-5">
         {posts.map((post) => (
           <Link to={`/${post.id}`} key={post.id}>
-            <PostItem  category={post.category} title={post.title} content={post.content} tags={post.tags} />
+            <PostItem  category={post.category} title={post.title} content={post.content} tags={post.tags} createdAt={post.createdAt} />
           </Link>
         ))}
       </div>
