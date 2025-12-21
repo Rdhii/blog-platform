@@ -5,3 +5,6 @@
 [x] Buat Page Detail Post
 [x] Connect Detail Post ke Backend
 [x] Set Tanggal Pembuatan Post menjadi Tanggal Bulan Tahun
+[x] Mengatur isi content agar lebih sesuai, mengatur card agar content yang tampil pada card ada batasnya
+[] Membuat tampilan login, registrasi
+[] Menghubungkan login dan registrasi ke backend
