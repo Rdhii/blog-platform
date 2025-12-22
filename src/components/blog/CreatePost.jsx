@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 
 export default function CreatePost() {
 
     const navigate = useNavigate();
+    const { id } = useParams();
+    const isEdit = Boolean(id);
 
     const [formData, setFormData] = useState({
       title: "",
@@ -21,6 +23,51 @@ export default function CreatePost() {
       });
     };
 
+    // const handleSubmit = async (e) => {
+    //   e.preventDefault();
+
+    //   try {
+    //     const tagsArray = formData.tags
+    //     .split(',')
+    //     .map(tag => tag.trim().toLowerCase())
+    //     .filter(tag => tag.length > 0)
+
+    //     const response = await axios.post("http://localhost:3000/api/post/", {
+    //       title: formData.title,
+    //       category: formData.category,
+    //       tags: tagsArray,
+    //       content: formData.content
+    //     })
+    //     response.data;
+
+    //     alert("Post created successfully!");
+    //     navigate("/")
+    //   } catch (error) {
+    //     console.error("Error creating post:", error);
+    //     alert("Failed to create post. Please try again.");
+    //   }
+    // }
+
+    useEffect(() => {
+      if (!id) return;
+      const fetchPost = async () => {
+        try {
+          const response = await axios.get(`http://localhost:3000/api/post/${id}`);
+          const postData = response.data;
+          setFormData({
+            title: postData.title ?? "",
+            category: postData.category ?? "",
+            tags: postData.tags ? postData.tags.join(', ') : "",
+            content: postData.content ?? ""
+          });
+        } catch (error) {
+        console.error("Error fetching post data:", error);
+        alert("Failed to fetch post data. Please try again.");
+      }
+      };
+      fetchPost();
+    }, [id]);
+
     const handleSubmit = async (e) => {
       e.preventDefault();
 
@@ -30,16 +77,26 @@ export default function CreatePost() {
         .map(tag => tag.trim().toLowerCase())
         .filter(tag => tag.length > 0)
 
-        const response = await axios.post("http://localhost:3000/api/post/", {
-          title: formData.title,
-          category: formData.category,
-          tags: tagsArray,
-          content: formData.content
-        })
-        response.data;
-
-        alert("Post created successfully!");
-        navigate("/")
+        if (isEdit) {
+          await axios.put(`http://localhost:3000/api/post/${id}`, {
+            title: formData.title,
+            category: formData.category,
+            tags: tagsArray,
+            content: formData.content
+          });
+          alert("Post updated successfully!");
+        navigate(`/${id}`);
+        } else {
+          const response = await axios.post("http://localhost:3000/api/post/", {
+            title: formData.title,
+            category: formData.category,
+            tags: tagsArray,
+            content: formData.content
+          });
+          response.data;
+          alert("Post created successfully!");
+          navigate("/");
+        }
       } catch (error) {
         console.error("Error creating post:", error);
         alert("Failed to create post. Please try again.");
@@ -108,7 +165,7 @@ export default function CreatePost() {
           <Link to="/" className='px-5 py-2 rounded-lg hover:bg-blue-100 cursor-pointer'>Cancel</Link>
           <button 
             type="submit"
-          className='px-5 py-2 bg-primary rounded-lg text-white cursor-pointer hover:bg-primary/90'>Create Post</button>
+          className='px-5 py-2 bg-primary rounded-lg text-white cursor-pointer hover:bg-primary/90'>{isEdit ? 'Update Post' : 'Create Post'}</button>
         </div>
       </form>
     </div>

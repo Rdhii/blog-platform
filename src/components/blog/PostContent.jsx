@@ -23,6 +23,10 @@ export default function PostContent() {
     }
   }
 
+  const handleUpdate = async () => {
+    navigate(`/create/${id}`);
+  }
+
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await axios.get(`http://localhost:3000/api/post/${id}`);
@@ -53,7 +57,7 @@ export default function PostContent() {
         <ReactMarkdown>{post?.content}</ReactMarkdown>
         </div>
         <div className='flex items-center gap-3 border-t border-gray-200 py-4 text-sm'>
-            <button className='border border-gray-200 shadow-lg rounded-lg px-4 py-1.5 hover:bg-blue-100 hover:text-blue-500 cursor-pointer'>Edit Post</button>
+            <button onClick={handleUpdate} className='border border-gray-200 shadow-lg rounded-lg px-4 py-1.5 hover:bg-blue-100 hover:text-blue-500 cursor-pointer'>Edit Post</button>
             <button onClick={handleDelete} className='border border-gray-200 shadow-lg rounded-lg px-4 py-1.5 text-red-500 hover:bg-red-100 cursor-pointer'>Delete Post</button>
         </div>
     </div>

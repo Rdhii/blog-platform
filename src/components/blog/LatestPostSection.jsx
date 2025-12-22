@@ -34,9 +34,7 @@ export default function LatestPostSection() {
       {/* List Post Items */}
       <div className="list-post grid grid-cols-2 gap-5">
         {posts.map((post) => (
-          <Link to={`/${post.id}`} key={post.id}>
             <PostItem id={post.id} category={post.category} title={post.title} content={post.content} tags={post.tags} createdAt={post.createdAt} />
-          </Link>
         ))}
       </div>
     </div>
