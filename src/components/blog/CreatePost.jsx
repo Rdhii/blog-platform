@@ -131,11 +131,11 @@ export default function CreatePost() {
           className='border border-gray-300 rounded-md p-2 cursor-pointer'
           required>
             <option value="" disabled hidden>Select a Category</option>
-            <option value="development">Development</option>
-            <option value="ux">UX</option>
-            <option value="technology">Technology</option>
-            <option value="tutorial">Tutorial</option>
-            <option value="opinion">Opinion</option>
+            <option value="Development">Development</option>
+            <option value="UX">UX</option>
+            <option value="Technology">Technology</option>
+            <option value="Tutorial">Tutorial</option>
+            <option value="Opinion">Opinion</option>
           </select>
         </div>
         <div className='flex flex-col space-y-2 mt-8'>
