@@ -13,7 +13,7 @@ export default function HeroSection() {
         A space for thoughts, stories, and ideas. Discover articles on design,
         development, and creativity.
       </p>
-      <Link to="/create" className="flex gap-2 items-center bg-primary px-8 py-3 rounded-lg text-white  hover:bg-blue-900 hover:cursor-pointer">
+      <Link to="/create" className="flex gap-2 items-center bg-primary transition delay-50 duration-250 ease-in-out px-8 py-3 rounded-lg text-white hover:-translate-y-1 hover:scale-110 hover:bg-blue-900 hover:cursor-pointer">
         <PenLine className="size-4" /> Start Writing
       </Link>
     </div>

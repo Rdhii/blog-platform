@@ -4,6 +4,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import ReactMarkdown from 'react-markdown';
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 export default function PostContent() {
 
@@ -15,11 +16,11 @@ export default function PostContent() {
     if (!window.confirm('Hapus post ini?')) return;
     try {
       await axios.delete(`http://localhost:3000/api/post/${id}`);
-      alert('Post berhasil dihapus.');
+      toast.success('Post berhasil dihapus.');
       navigate("/");
     } catch (error) {
       console.error('Error deleting post:', error);
-      alert('Gagal menghapus post. Silakan coba lagi.');
+      toast.error('Gagal menghapus post. Silakan coba lagi.');
     }
   }
 

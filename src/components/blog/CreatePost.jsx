@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function CreatePost() {
 
@@ -23,31 +24,6 @@ export default function CreatePost() {
       });
     };
 
-    // const handleSubmit = async (e) => {
-    //   e.preventDefault();
-
-    //   try {
-    //     const tagsArray = formData.tags
-    //     .split(',')
-    //     .map(tag => tag.trim().toLowerCase())
-    //     .filter(tag => tag.length > 0)
-
-    //     const response = await axios.post("http://localhost:3000/api/post/", {
-    //       title: formData.title,
-    //       category: formData.category,
-    //       tags: tagsArray,
-    //       content: formData.content
-    //     })
-    //     response.data;
-
-    //     alert("Post created successfully!");
-    //     navigate("/")
-    //   } catch (error) {
-    //     console.error("Error creating post:", error);
-    //     alert("Failed to create post. Please try again.");
-    //   }
-    // }
-
     useEffect(() => {
       if (!id) return;
       const fetchPost = async () => {
@@ -62,7 +38,7 @@ export default function CreatePost() {
           });
         } catch (error) {
         console.error("Error fetching post data:", error);
-        alert("Failed to fetch post data. Please try again.");
+        toast.error("Failed to fetch post data. Please try again.");
       }
       };
       fetchPost();
@@ -84,7 +60,7 @@ export default function CreatePost() {
             tags: tagsArray,
             content: formData.content
           });
-          alert("Post updated successfully!");
+          toast.success("Post updated successfully!");
         navigate(`/${id}`);
         } else {
           const response = await axios.post("http://localhost:3000/api/post/", {
@@ -94,12 +70,12 @@ export default function CreatePost() {
             content: formData.content
           });
           response.data;
-          alert("Post created successfully!");
+          toast.success("Post created successfully!");
           navigate("/");
         }
       } catch (error) {
         console.error("Error creating post:", error);
-        alert("Failed to create post. Please try again.");
+        toast.error("Failed to create post. Please try again.");
       }
     }
 
