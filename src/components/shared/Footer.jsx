@@ -3,9 +3,9 @@ import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <div className="flex items-center justify-around border-t border-gray-200 py-10">
+    <div className="md:flex-row flex flex-col items-center justify-around border-t border-gray-200 py-10">
       <Logo />
-      <p className="text-sm text-muted-foreground">
+      <p className="text-sm text-muted-foreground my-4 md:my-0">
         A personal blogging platform for sharing ideas.
       </p>
       <p className="text-sm text-muted-foreground">

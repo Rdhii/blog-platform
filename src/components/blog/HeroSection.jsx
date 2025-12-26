@@ -6,10 +6,10 @@ export default function HeroSection() {
 
   return (
     <div className="flex flex-col items-center justify-center h-120 gap-3">
-      <h1 className="text-7xl font-bold">
+      <h1 className="text-2xl md:text-7xl font-bold">
         Welcome to <span className="text-primary">InkWell</span>
       </h1>
-      <p className="text-xl text-muted-foreground w-170 text-center">
+      <p className="md:text-xl text-sm text-muted-foreground md:w-170 text-center">
         A space for thoughts, stories, and ideas. Discover articles on design,
         development, and creativity.
       </p>

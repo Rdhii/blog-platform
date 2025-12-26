@@ -81,9 +81,9 @@ export default function CreatePost() {
 
 
   return (
-    <div className='py-16 w-[50%] mx-auto '>
+    <div className='py-16 md:w-[50%] mx-auto w-75'>
       <div className='space-y-3 mb-10'>
-        <p className='text-4xl font-bold'>Create New Post</p>
+        <p className='md:text-4xl text-3xl font-bold'>Create New Post</p>
         <p className='text-sm text-muted-foreground'>Share your thoughts with the world. Fill in the details below to publish your article.</p>
       </div>
       <form onSubmit={handleSubmit} className='rounded-xl bg-card shadow-xl w-full p-10'>
@@ -95,7 +95,7 @@ export default function CreatePost() {
           value={formData.title}
           onChange={handleChange}
           placeholder='Enter your post title...' 
-          className='border border-gray-300 rounded-md p-2'
+          className='border border-gray-300 rounded-md p-2 focus:outline-primary'
           required />
         </div>
         <div className='flex flex-col space-y-2 mt-8'>
@@ -104,7 +104,7 @@ export default function CreatePost() {
           name="category"
           value={formData.category}
           onChange={handleChange}
-          className='border border-gray-300 rounded-md p-2 cursor-pointer'
+          className='border border-gray-300 rounded-md p-2 cursor-pointer focus:outline-primary'
           required>
             <option value="" disabled hidden>Select a Category</option>
             <option value="Development">Development</option>
@@ -122,23 +122,23 @@ export default function CreatePost() {
             value={formData.tags}
             onChange={handleChange}
             placeholder='e.g., design, development, tutorial'
-            className='border border-gray-300 rounded-md p-2'
+            className='border border-gray-300 rounded-md p-2 focus:outline-primary'
           />
-          <p className='text-sm text-muted-foreground mt-2'>Press Enter to add a tag. Tags will be lowercase and alphanumeric only.</p>
+          <p className='text-sm text-muted-foreground mt-2'>Press add tag with coma if you have more than 1 tag. Tags will be lowercase and alphanumeric only.</p>
         </div>
         <div className='flex flex-col space-y-2 mt-8'>
-          <label>Content</label>
+          <label className='font-bold'>Content</label>
           <textarea
             name="content"
             value={formData.content}
             onChange={handleChange}
             placeholder='Write your post content here...'
-            className='border border-gray-300 rounded-md p-2 h-40 resize-none'
+            className='border border-gray-300 rounded-md p-2 h-40 resize-none focus:outline-primary'
             required
           />
         </div>
-        <div className='flex justify-between mt-8'>
-          <Link to="/" className='px-5 py-2 rounded-lg hover:bg-blue-100 cursor-pointer'>Cancel</Link>
+        <div className='md:flex-row flex flex-col-reverse gap-3 md:gap-0 justify-between mt-8'>
+          <Link to="/" className='px-5 py-2 rounded-lg hover:bg-blue-100 cursor-pointer text-center'>Cancel</Link>
           <button 
             type="submit"
           className='px-5 py-2 bg-primary rounded-lg text-white cursor-pointer hover:bg-primary/90'>{isEdit ? 'Update Post' : 'Create Post'}</button>
