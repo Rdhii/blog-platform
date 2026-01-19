@@ -1,4 +1,4 @@
-import HeroSection from "../components/blog/herosection";
+import HeroSection from "../components/blog/HeroSection";
 import LatestPostSection from "../components/blog/LatestPostSection";
 import { Layout } from "../components/shared/Layout";
 
