@@ -1,8 +1,7 @@
 import { Search } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import PostItem from "./PostItem";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import apiClient from "../../lib/apiClient";
 
 export default function LatestPostSection() {
   const [posts, setPosts] = useState([]);
@@ -12,7 +11,7 @@ export default function LatestPostSection() {
     const fetchPosts = async () => {
       try {
         // Kirim query ke backend sebagai parameter
-        const response = await axios.get("http://localhost:3000/api/post/", {
+        const response = await apiClient.get("/post", {
           params: { search: query },
         });
         setPosts(response.data);
@@ -50,6 +49,7 @@ export default function LatestPostSection() {
       <div className="list-post grid md:grid-cols-2 gap-5 ">
         {posts.map((post) => (
           <PostItem
+            key={post.id}
             id={post.id}
             category={post.category}
             title={post.title}

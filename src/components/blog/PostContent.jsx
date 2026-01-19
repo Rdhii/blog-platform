@@ -1,4 +1,4 @@
-import axios from "axios";
+import apiClient from "../../lib/apiClient";
 import { ArrowLeft } from "lucide-react";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -14,7 +14,7 @@ export default function PostContent() {
   const handleDelete = async () => {
     if (!window.confirm("Hapus post ini?")) return;
     try {
-      await axios.delete(`http://localhost:3000/api/post/${id}`);
+      await apiClient.delete(`/post/${id}`);
       toast.success("Post berhasil dihapus.");
       navigate("/");
     } catch (error) {
@@ -29,7 +29,7 @@ export default function PostContent() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await axios.get(`http://localhost:3000/api/post/${id}`);
+      const response = await apiClient.get(`/post/${id}`);
       setPost(response.data);
     };
     fetchPosts();
